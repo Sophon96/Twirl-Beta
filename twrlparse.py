@@ -1,5 +1,4 @@
 import json
-import gzip
 import tarfile
 import zstandard as zstd
 os = zstd.os
@@ -30,3 +29,8 @@ class Parser:
         with open(self.pkg, "rb") as zst, open(self.tmpdir + self.pkg.split(".")[0] + ".tar", "wb") as dest:
             dctx.copy_stream(zst, dest)
         return [self.tmpdir + self.pkg.split(".")[0] + ".tar", tarfile.open(self.tmpdir + self.pkg.split(".")[0] + ".tar")]
+
+    def pkginfo(self, tar_file : tarfile.TarFile):
+        stuff = tar_file.read().strip().replace(b"\n", b"")
+        pkginfo_data = json.loads(stuff)
+        return pkginfo_data
