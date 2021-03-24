@@ -37,4 +37,5 @@ jobs:
           tar -xvf zstandard-0.15.2.tar.gz
           cd zstandard-0.15.2
           python3 setup.py build && sudo python3 setup.py install
+          cd ..
           python3 twrl-test.py
