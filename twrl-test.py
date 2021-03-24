@@ -1,8 +1,14 @@
 import twrlparse as tp
+import json
 p = tp.Parser("neotwirl.tar.zst","./tmp")
 fp,data = p.load()
-print(fp)
-print(f"Members: {[x.name for x in data]}")
-for x in data:
-	if x.name == "neotwirl/pkginfo":
-		pkginfo = ""
+print(f"{data.name} | {fp}]\n\n")
+
+for member in data:
+	print(f"{member.name} | Type: {'File' if member.isfile() else 'Folder'} | Size: {member.size}\n")
+
+stuff = data.extractfile("neotwirl/pkginfo/PKGINFO")
+print("PKGINFO:")
+stuff = stuff.read().strip().replace(b"\n",b"")
+pkginfo_data = json.loads(stuff)
+print(pkginfo_data)
