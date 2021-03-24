@@ -33,4 +33,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           sudo apt install -y python3
+          python3 -m ensurepip
+          python3 -m pip install zstandard
           python3 twrl-test.py
