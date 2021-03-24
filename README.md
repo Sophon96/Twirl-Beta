@@ -1,4 +1,7 @@
 # Twirl Packages
+
+[![Packages Branch Test](https://github.com/Generic-Linux/Twirl-Beta/actions/workflows/pkg-test.yml/badge.svg?branch=packages)](https://github.com/Generic-Linux/Twirl-Beta/actions/workflows/pkg-test.yml)
+
 Contents:
 `twrlparse.py`:
 ```
