@@ -34,7 +34,7 @@ jobs:
         run: |
           sudo apt install -y python3
           wget "https://github.com/indygreg/python-zstandard/releases/download/0.15.2/zstandard-0.15.2.tar.gz" || curl -L "https://github.com/indygreg/python-zstandard/releases/download/0.15.2/zstandard-0.15.2.tar.gz" --output zstandard-0.15.2.tar.gz
-          tar -xvf zstandard-0.15.2.tar.gz
+          tar -xf zstandard-0.15.2.tar.gz
           cd zstandard-0.15.2
           python3 setup.py build && sudo python3 setup.py install
           cd ..
