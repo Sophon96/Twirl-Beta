@@ -33,5 +33,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           sudo apt install -y python3
-          sudo apt-get install -y python3-zstandard || sudo apt-get install -y python-zstandard || echo "Couldn't install zstandard :("
+          wget "https://github.com/indygreg/python-zstandard/releases/download/0.15.2/zstandard-0.15.2.tar.gz" || curl -L "https://github.com/indygreg/python-zstandard/releases/download/0.15.2/zstandard-0.15.2.tar.gz" --output zstandard-0.15.2.tar.gz
+          tar -xvf zstandard-0.15.2.tar.gz
+          cd zstandard-0.15.2
+          python3 setup.py build && python3 setup.py install
           python3 twrl-test.py
