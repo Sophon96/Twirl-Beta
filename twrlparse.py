@@ -5,7 +5,7 @@ os = zstd.os
 
 
 class Parser:
-    """Parse gzip files"""
+    """Parse twirl package files"""
 
     def __init__(self, package_location, tmpdir="/tmp/twrl-parse."+str(os.getpid())):
         """Package location and tmpdir"""
@@ -28,9 +28,18 @@ class Parser:
         dctx = zstd.ZstdDecompressor()
         with open(self.pkg, "rb") as zst, open(self.tmpdir + self.pkg.split(".")[0] + ".tar", "wb") as dest:
             dctx.copy_stream(zst, dest)
-        return [self.tmpdir + self.pkg.split(".")[0] + ".tar", tarfile.open(self.tmpdir + self.pkg.split(".")[0] + ".tar")]
+        self.tarfile = tarfile.open(self.tmpdir + self.pkg.split(".")[0] + ".tar")
+        return [self.tmpdir + self.pkg.split(".")[0] + ".tar", self.tarfile]
+
 
     def pkginfo(self, tar_file : tarfile.TarFile):
         stuff = tar_file.read().strip().replace(b"\n", b"")
         pkginfo_data = json.loads(stuff)
         return pkginfo_data
+
+    def extract_rootfs(self,dest):
+        if os.path.isdir(dest):
+            pass
+        else:
+            raise Exception(f"{dest} is not a valid folder.")
+        # use self.tarfile and extract to {dest}
