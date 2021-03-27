@@ -8,7 +8,7 @@ class DownloadError(TwirlErrors):
     pass
 
 
-class ChecksumDoesntMatch(TwirlErrors):
+class InetgrityError(TwirlErrors):
     """The checksum of the tarball doesn't match."""
     pass
 
