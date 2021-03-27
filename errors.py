@@ -1,7 +1,7 @@
 class TwirlErrors(Exception):
     pass
 class DownloadError(TwirlErrors):
-    print("Package failed to dowwnload")
+    print("Package failed to download")
     pass
 class ChecksumDoesntMatch(TwirlErrors):
     print("Package checksum doesn't match, retry")
