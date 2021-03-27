@@ -3,7 +3,7 @@ class TwirlErrors(Exception):
 class DownloadError(TwirlErrors):
     print("Package failed to dowwnload")
     pass
-class ChecksumDoesntMatch(WTwirlErrors):
+class ChecksumDoesntMatch(TwirlErrors):
     print("Package checksum doesn't match, retry")
     pass
 class PackageNotFound(TwirlErrors):
