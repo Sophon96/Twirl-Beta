@@ -1,6 +1,6 @@
 # Package remanants
 tmp/neotwirl.tar
-
+out/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
