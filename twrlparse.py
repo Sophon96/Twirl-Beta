@@ -1,8 +1,7 @@
 import json
 import tarfile
 import zstandard as zstd
-os = zstd.os
-
+import os
 
 class Parser:
     """Parse twirl package files"""
@@ -44,6 +43,10 @@ class Parser:
         else:
             raise Exception(f"{dest} is not a valid folder.")
         tf = self.tarfile
-        res = tf.extractall(path=dest)
-        return dest + "/" if dest[-1] != "/" else "" + self.pkg.split(".")[0]
-        # use self.tarfile and extract to {dest}
+        subdir_and_files = [
+        tarinfo for tarinfo in tf.getmembers()
+        if tarinfo.name.startswith("data/") and len(tarinfo.name) > 5
+        ]
+        tf.extractall(members=subdir_and_files,path=self.tmpdir)
+        print("Extracted.")
+        os.system(f"""bash -c "mv {self.tmpdir}data/* {dest}";ls {dest}""")

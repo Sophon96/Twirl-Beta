@@ -5,7 +5,7 @@ print(f"{data.name} | {fp}\n\n")
 
 for member in data:
 	print(f"{member.name} | Type: {'File' if member.isfile() else 'Folder'} | Size: {member.size}\n")
-
+print(data)
 #stuff = data.extractfile("pkginfo/PKGINFO")
 print("PKGINFO:")
 pkg = p.pkginfo()
