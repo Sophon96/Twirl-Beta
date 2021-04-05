@@ -48,5 +48,5 @@ class Parser:
         if tarinfo.name.startswith("data/") and len(tarinfo.name) > 5
         ]
         tf.extractall(members=subdir_and_files,path=self.tmpdir)
-        print("Extracted.")
         os.system(f"""bash -c "mv {self.tmpdir}data/* {dest}";ls {dest}""")
+        return dest

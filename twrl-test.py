@@ -10,7 +10,7 @@ print(data)
 print("PKGINFO:")
 pkg = p.pkginfo()
 print(pkg)
-print(f"\nPackage Name: {pkg['info']['Package']}")
+print(f"\nPackage Name: {pkg['pkgname']}")
 q = input("Extract [y]? ")
 if q=="y":
     print(p.extract_rootfs("./out/"))

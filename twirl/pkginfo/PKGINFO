@@ -1,26 +1,29 @@
-
 {
+  "pkgname": "neofetch",
+  "version": "7.1.0-1",
+  "description": "A CLI system information tool written in BASH that supports displaying images.",
+  "packager": "Morten Linderud <foxboron@archlinux.org>",
+  "size": 347269,
+  "builddate": 1601651246,
   "conflicts": [],
-  "depends": {
-    "wants": [],
-    "recommends": [
-      "chafa"
-    ]
-  },
-  "info": {
-    "Package": "neofetch",
-    "Version": "7.1.0-1",
-    "Maintainer": {
-      "name": "Ubuntu Developers",
-      "contact": "ubuntu-devel-discuss@lists.ubuntu.com"
-    },
-    "Original-Maintainer": {
-      "name": "Nobuhiro Iwamatsu",
-      "email": "iwamatsu@debian.org"
-    },
-    "Installed-Size": "16000",
-    "Homepage": "https://github.com/dylanaraps/neofetch",
-    "Description": "Shows Linux System Information with Distribution Logo"
-  }
+  "depends": [
+    "bash"
+  ],
+  "homepage": "https://github.com/dylanaraps/neofetch",
+  "license": "MIT",
+  "optdepends": [
+    "catimg: Display Images",
+    "chafa: Image to text support",
+    "feh: Wallpaper Display",
+    "imagemagick: Image cropping / Thumbnail creation / Take a screenshot",
+    "jp2a: Display Images",
+    "libcaca: Display Images",
+    "nitrogen: Wallpaper Display",
+    "w3m: Display Images",
+    "xdotool: See https://github.com/dylanaraps/neofetch/wiki/Images-in-the-terminal",
+    "xorg-xdpyinfo: Resolution detection (Single Monitor)",
+    "xorg-xprop: Desktop Environment and Window Manager",
+    "xorg-xrandr: Resolution detection (Multi Monitor + Refresh rates)",
+    "xorg-xwininfo: See https://github.com/dylanaraps/neofetch/wiki/Images-in-the-terminal"
+  ]
 }
-
