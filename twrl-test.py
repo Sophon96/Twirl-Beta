@@ -1,4 +1,5 @@
 import twrlparse as tp
+from sys import argv
 p = tp.Parser("neotwirl.tar.zst","./tmp")
 fp, data = p.load()
 print(f"{data.name} | {fp}\n\n")
@@ -11,6 +12,8 @@ print("PKGINFO:")
 pkg = p.pkginfo()
 print(pkg)
 print(f"\nPackage Name: {pkg['pkgname']}")
-q = input("Extract [y]? ")
-if q=="y":
-    print(p.extract_rootfs("./out/"))
+try:
+    if argv[2]=="y":
+        print(p.extract_rootfs("./out/"))
+except Exception:
+    print("")
