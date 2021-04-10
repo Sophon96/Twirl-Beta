@@ -1,7 +1,6 @@
 # Package remanants
-tmp/data/
-tmp/neotwirl.tar
-out/
+
+# Actually the makefile will handle dat stuff
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
