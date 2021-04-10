@@ -12,8 +12,4 @@ print("PKGINFO:")
 pkg = p.pkginfo()
 print(pkg)
 print(f"\nPackage Name: {pkg['pkgname']}")
-try:
-    if argv[2]=="y":
-        print(p.extract_rootfs("./out/"))
-except Exception:
-    print("")
+print(p.extract_rootfs("./out"))

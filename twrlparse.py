@@ -2,6 +2,7 @@ import json
 import tarfile
 import zstandard as zstd
 import os
+import shutil
 
 class Parser:
     """Parse twirl package files"""
@@ -48,5 +49,9 @@ class Parser:
         if tarinfo.name.startswith("data/") and len(tarinfo.name) > 5
         ]
         tf.extractall(members=subdir_and_files,path=self.tmpdir)
-        os.system(f"""bash -c "mv {self.tmpdir}data/* {dest}";ls {dest}""")
+#        os.system(f"""bash -c "mv {self.tmpdir}data/* {dest}";ls {dest}""")
+        src = self.tmpdir + "data/"
+        files = os.listdir(src)
+        for file in files:
+            shutil.move(src + file,dest)
         return dest
