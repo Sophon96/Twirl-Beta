@@ -30,7 +30,7 @@ jobs:
       #  run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Install py-ZSTD and run the program
         run: |
           sudo apt install -y python3
           wget "https://github.com/indygreg/python-zstandard/releases/download/0.15.2/zstandard-0.15.2.tar.gz" || curl -L "https://github.com/indygreg/python-zstandard/releases/download/0.15.2/zstandard-0.15.2.tar.gz" --output zstandard-0.15.2.tar.gz
@@ -38,5 +38,4 @@ jobs:
           cd zstandard-0.15.2
           python3 setup.py build && sudo python3 setup.py install
           cd ..
-#          python3 twrl-test.py
           make
